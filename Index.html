@@ -3,20 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />    
     <title>Index</title>
   </head>
   <body>
     <a href="#" id="click">Click Here</a>
-    <div id="output">Hello</div>
-    <script>
+    <div id="output" class="output"></div>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+    <script type="text/javascript">
       $(document).ready(function() {
         $("#click").click(function(e) {
-          e.preventDefault();
-          alert("hi");
+          e.preventDefault();       
           var content='Loading.txt';
-          $("#output").load(content);
+          $(".output").load(content,function(responsetext,status,xhr){
+              if(xhr.status==200)
+              {
+                  $("#output").append("</br> work done.")
+              }
+          });          
         });
       });
     </script>

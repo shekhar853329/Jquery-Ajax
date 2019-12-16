@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="#" id="click">Click Here</a>
+    <div id="output" class="output"></div>
+    <script
+      type="text/javascript"
+      src="node_modules/jquery/dist/jquery.js"
+    ></script>
+    <script>
+      $(document).ready(function() {
+        $("#click").click(function() {
+          $.ajax({
+            url: "https://api.myjson.com/bins/s2q2g",
+            type: "GET",
+            dataType: "json",
+            success:function(data,status,jqXHR){
+                $.each(data,function(index,value){
+                    console.log(index);
+                    console.log(value);
+                    console.log(value._id);
+                })
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
